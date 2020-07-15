@@ -1,0 +1,24 @@
+{
+  "name": "base_scss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "scsstocss": "node-sass scss/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dat0318/base_scss.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dat0318/base_scss/issues"
+  },
+  "homepage": "https://github.com/Dat0318/base_scss#readme"
+}
