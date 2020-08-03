@@ -7,10 +7,18 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 1200px) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 900px) {
+    html {
+      font-size: 50%; } }
 
 body {
-  padding: 3rem;
   box-sizing: border-box; }
+  @media (max-width: 900px) {
+    body {
+      padding: 0rem; } }
 
 @keyframes moveInLeft {
   0% {
@@ -66,12 +74,19 @@ body {
     font-weight: 400;
     letter-spacing: 1.5rem;
     animation: moveInLeft 1s ease-out; }
+    @media (max-width: 600px) {
+      .heading-primary__main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary__sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.8rem;
     animation: moveInRight 1s ease-out; }
+    @media (max-width: 600px) {
+      .heading-primary__sub {
+        letter-spacing: 0.5rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -84,6 +99,12 @@ body {
   color: transparent;
   -webkit-background-clip: text;
   transition: all 0.2s; }
+  @media (max-width: 900px) {
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media (max-width: 600px) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
   .heading-secondary:hover {
     transform: skewY(5deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -140,7 +161,8 @@ body {
 
 .btn--blue {
   background-color: #5a73fc;
-  color: #fff; }
+  color: #fff;
+  position: relative; }
   .btn--blue::after {
     background-color: #5a73fc; }
 
@@ -523,6 +545,113 @@ body {
     right: 2.5rem;
     font-size: 3rem;
     text-decoration: none; }
+
+.navigation__checkbox {
+  display: none; }
+
+.navigation__button {
+  background-color: #fff;
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 2000;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15); }
+
+.navigation__background {
+  background-image: radial-gradient(#5a73fc, #1c3eff);
+  height: 4rem;
+  width: 4rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 1000;
+  transition: transform 0.8s; }
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80); }
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%; }
+
+.navigation__nav {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500;
+  transition: all 0.8s;
+  opacity: 0; }
+
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center; }
+
+.navigation__item {
+  margin: 1rem; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: radial-gradient(150% 200% ellipse at 115%, #fff 0%, #fff 50%, transparent 50%);
+  background-size: 252%;
+  transition: all 0.4s; }
+
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #5a73fc;
+  transform: translateX(1rem); }
+
+.navigation__icon {
+  position: relative;
+  margin-top: 3.2rem; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3.5rem;
+    height: 0.3rem;
+    background-color: #000;
+    display: inline-block; }
+  .navigation__icon::after, .navigation__icon::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.2s; }
+  .navigation__icon::before {
+    top: -0.8rem; }
+  .navigation__icon::after {
+    top: 0.8rem; }
+
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem; }
+
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg); }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg); }
 
 .header {
   background-image: linear-gradient(to right bottom, rgba(142, 158, 252, 0.8), rgba(28, 62, 255, 0.8)), url("../img/background1.jpg");

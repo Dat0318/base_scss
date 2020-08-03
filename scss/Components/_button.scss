@@ -54,6 +54,7 @@
   &--blue {
     background-color: $color-primary;
     color: $color-white;
+    position: relative;
 
     &::after {
       background-color: $color-primary;
