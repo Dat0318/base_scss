@@ -1,6 +1,13 @@
 .composition {
   position: relative;
   &__photo {
+    @include respond(tab-port) {
+      float: left;
+      position: relative;
+      width: 33.33%;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, 0.2);
+    }
+
     width: 50%;
     box-shadow: 0 1.5rem 4rem rgba($color: $color-white, $alpha: 0.4);
     border-radius: 0.2rem;
